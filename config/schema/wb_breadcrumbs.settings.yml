@@ -1,0 +1,7 @@
+wb_breadcrumbs.settings:
+  type: mapping
+  label: 'WeebDo breadcrumbs module settings'
+  mapping:
+    breadcrumb_menu:
+      type: string
+      label: 'Menu name'

@@ -1,0 +1,8 @@
+name: WeebDo Breadcrumbs
+type: module
+description: Path based Breadcrumbs
+package: breadcrumbs
+core: 8.x
+version: '8.x-1.0-dev'
+dependencies:
+  - block

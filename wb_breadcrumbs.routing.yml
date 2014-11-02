@@ -1,0 +1,7 @@
+wb_breadcrumbs.config:
+  path: /admin/config/system/wb_breadcrumbs
+  defaults:
+    _form: 'Drupal\wb_breadcrumbs\Form\ConfigForm'
+    _titke: 'WB Breadcrumbs configuration'
+  requirements:
+    _permission: 'configure wb_breadcrumbs'

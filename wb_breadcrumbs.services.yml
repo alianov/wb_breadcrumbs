@@ -1,0 +1,5 @@
+services:
+  wb_breadcrumb.path:
+    class: Drupal\wb_breadcrumbs\WbPathBasedBreadcrumbBuilder
+    tags:
+      - { name: breadcrumb_builder, priority: 1000 }

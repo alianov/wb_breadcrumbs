@@ -1,0 +1,4 @@
+configure wb_breadcrumbs:
+  title: 'Configure breadcrumbs'
+  desscription: 'Configure menu from wich module will create breadcrumbs'
+  restrict access: TRUE
