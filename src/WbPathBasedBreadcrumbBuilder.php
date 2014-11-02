@@ -34,7 +34,7 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
 
-  protected $config_factory;
+  protected $configFactory;
 
   /**
    * Constructs a WbPathBasedBreadcrumbBuilder object.
@@ -65,14 +65,7 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    * {@inheritdoc}
    */
   public function applies(RouteMatchInterface $route_match) {
-    $path = $route_match->getRouteObject();
-    $path = $path->getPath();
-    $pos = strpos($path, '/admin');
-    if ($pos === false) {
-      return TRUE;
-    } else {
-      return FALSE;
-    }
+    return strpos($route_match->getRouteObject()->getPath(), '/admin') !== FALSE;
   }
 
   /**
@@ -80,7 +73,7 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    */
   public function build(RouteMatchInterface $route_match) {
     $menu_tree = $this->menuTree;
-    $menu_name = $this->config_factory->get('wb_breadcrumbs.settings')->get('breadcrumb_menu');
+    $menu_name = $this->configFactory->get('wb_breadcrumbs.settings')->get('breadcrumb_menu');
     $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
     $tree = $menu_tree->load($menu_name, $parameters);
     $manipulators = array(
@@ -108,6 +101,6 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   }
 
   public function createFromRoute($text, $urlObject) {
-    return new Link ($text, $urlObject);
+    return new Link($text, $urlObject);
   }
 }
