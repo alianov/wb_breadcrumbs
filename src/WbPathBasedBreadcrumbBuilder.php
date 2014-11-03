@@ -46,6 +46,7 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    */
   public function __construct(MenuLinkTreeInterface $menu_tree, ConfigFactoryInterface $config_factory) {
     $this->menuTree = $menu_tree;
+    $this->configFactory = $config_factory;
   }
 
   /**
@@ -62,7 +63,7 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    * {@inheritdoc}
    */
   public function applies(RouteMatchInterface $route_match) {
-    return strpos($route_match->getRouteObject()->getPath(), '/admin') !== FALSE;
+    return strpos($route_match->getRouteObject()->getPath(), '/admin') !== 0;
   }
 
   /**

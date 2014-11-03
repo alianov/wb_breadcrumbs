@@ -1,6 +1,6 @@
 services:
   wb_breadcrumb.path:
     class: Drupal\wb_breadcrumbs\WbPathBasedBreadcrumbBuilder
-    arguments: ['@menu.link_tree']
+    arguments: ['@menu.link_tree', '@config.factory']
     tags:
       - { name: breadcrumb_builder, priority: 1000 }
