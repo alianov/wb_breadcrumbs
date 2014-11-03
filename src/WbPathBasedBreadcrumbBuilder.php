@@ -41,12 +41,9 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    *
    * @param \Drupal\Core\Menu\MenuLinkTreeInterface $menu_tree
    *   The menu tree service.
-   *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   A configuration object.
    */
-
-
   public function __construct(MenuLinkTreeInterface $menu_tree, ConfigFactoryInterface $config_factory) {
     $this->menuTree = $menu_tree;
   }
@@ -85,13 +82,16 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     return $link;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function linksFromTree($tree) {
     $out = [];
     foreach ($tree as $element) {
       if ($element->inActiveTrail) {
         $text = $element->link->getTitle();
-        $urlObject = $element->link->getUrlObject();
-        $out[] = $this->createFromRoute($text, $urlObject);
+        $url_object = $element->link->getUrlObject();
+        $out[] = $this->createFromRoute($text, $url_object);
         if ($element->subtree) {
           $out = array_merge($out, $this->linksFromTree($element->subtree));
         }
@@ -100,7 +100,10 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     return $out;
   }
 
-  public function createFromRoute($text, $urlObject) {
-    return new Link($text, $urlObject);
+  /**
+   * {@inheritdoc}
+   */
+  public function createFromRoute($text, $url_object) {
+    return new Link($text, $url_object);
   }
 }
