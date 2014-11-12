@@ -11,7 +11,7 @@ How to use
 Create new menu or use default Drupal's menu
 After module installation navigate to Configuration->System->Breadcrumbs
 configuration and type your menu name there
-Default name there is "category".
+Default name there is "main".
 Profit ))
 
 To download
