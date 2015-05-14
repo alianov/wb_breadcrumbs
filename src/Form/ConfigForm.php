@@ -17,6 +17,13 @@ use Drupal\Core\Form\FormStateInterface;
 class ConfigForm extends ConfigFormBase {
 
   /**
+  * {@inheritdoc}
+  */
+  protected function getEditableConfigNames() {
+    return ['wb_breadcrumbs.settings'];
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function getFormId() {
