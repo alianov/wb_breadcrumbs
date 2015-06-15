@@ -14,8 +14,8 @@ Created from ground up without knowledge Drupal 7 )))
 
 This module creates breadcrumb from the menu created in admin panel.
 Unlike Menu Breadcrumb, this module creates breadcrumb from the menu title
-(not from the node title).
-Therefore, it will create breadcrumb from any link type as long as there is a menu tree.
+(not from the node title). Therefore, it will create breadcrumb from any
+link type as long as there is a menu tree.
 
 REQUIREMENTS
 ------------
@@ -39,6 +39,3 @@ MAINTAINERS
 -----------
 Current maintainers:
  * Aleksandrs Poltarjonoks (Codenator81) - https://www.drupal.org/user/2694025
-
-
-
