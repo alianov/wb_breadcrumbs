@@ -83,4 +83,5 @@ class WbPathBasedBreadcrumbBlock extends BlockBase implements ContainerFactoryPl
       );
     }
   }
+
 }

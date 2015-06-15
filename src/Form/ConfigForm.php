@@ -17,8 +17,8 @@ use Drupal\Core\Form\FormStateInterface;
 class ConfigForm extends ConfigFormBase {
 
   /**
-  * {@inheritdoc}
-  */
+   * {@inheritdoc}
+   */
   protected function getEditableConfigNames() {
     return ['wb_breadcrumbs.settings'];
   }
@@ -55,4 +55,5 @@ class ConfigForm extends ConfigFormBase {
     $config->set('breadcrumb_menu', $form_state->getValue('breadcrumb_menu'));
     $config->save();
   }
+
 }

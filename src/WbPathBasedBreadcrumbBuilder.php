@@ -107,4 +107,5 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   public function createFromRoute($text, $url_object) {
     return new Link($text, $url_object);
   }
+
 }
