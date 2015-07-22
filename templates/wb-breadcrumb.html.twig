@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ * - main_class: Main class of breadcrumb
+ * - separator: Separator between Breadcrumbs links.
+ */
+#}
+    <nav class="{{ main_class }}">
+        <ol>
+            {% set count = breadcrumb|length %}
+            {% for item in breadcrumb %}
+                {% if loop.last %}
+                    <li>
+                        {{ item.text }}
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ item.url }}">{{ item.text }}</a>
+                    </li>
+                    {% if separator %}
+                    <li>
+                        {{ separator|raw }}
+                    </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </nav>

@@ -1,0 +1,10 @@
+<?php
+
+function wb_breadcrumbs_theme()
+{
+  return [
+    'wb_breadcrumb' => [
+      'variables' => ['breadcrumb' => NULL, 'separator' => NULL, 'main_class' => NULL],
+    ],
+  ];
+}

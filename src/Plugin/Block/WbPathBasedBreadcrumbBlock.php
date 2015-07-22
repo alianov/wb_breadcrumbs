@@ -76,10 +76,15 @@ class WbPathBasedBreadcrumbBlock extends BlockBase implements ContainerFactoryPl
    */
   public function build() {
     $breadcrumb = $this->breadcrumbManager->build($this->routeMatch);
+    $config = \Drupal::config('wb_breadcrumbs.settings');
+    $separator = $config->get('breadcrumb_separator');
+    $main_class = $config->get('main_class');
     if (!empty($breadcrumb)) {
       return array(
-        '#theme' => 'breadcrumb',
-        '#links' => $breadcrumb,
+        '#theme' => 'wb_breadcrumb',
+        '#breadcrumb' => $breadcrumb,
+        '#separator' => $separator,
+        '#main_class' => $main_class,
       );
     }
   }

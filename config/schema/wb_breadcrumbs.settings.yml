@@ -5,3 +5,9 @@ wb_breadcrumbs.settings:
     breadcrumb_menu:
       type: string
       label: 'Menu name'
+    breadcrumb_separator:
+      type: string
+      label: 'Breadcrumb separator'
+    main_class:
+      type: string
+      label: 'Main class for Breadcrumb'
