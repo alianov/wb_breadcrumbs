@@ -59,9 +59,9 @@ class ConfigForm extends ConfigFormBase {
     ];
     $form['disable_front_page_link'] = [
         '#type' => 'checkbox',
-        '#title' => t('Hide <front> page link'),
+        '#title' => t('Hide front page link'),
         '#default_value' => $config->get('disable_front_page_link'),
-        '#description' => t('Hide home page link in breadcrumbs'),
+        '#description' => t('Hide home(front) page link in breadcrumbs'),
     ];
     return parent::buildForm($form, $form_state);
   }

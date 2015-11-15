@@ -13,4 +13,4 @@ wb_breadcrumbs.settings:
       label: 'Main class for Breadcrumb'
     disable_front_page_link:
       type: boolean
-      label: 'Hide <front> page link'
+      label: 'Hide front page link'
