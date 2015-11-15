@@ -57,6 +57,12 @@ class ConfigForm extends ConfigFormBase {
       '#maxlength' => '255',
       '#description' => $this->t('Main class in nav tag of Breadcrumbs'),
     ];
+    $form['disable_front_page_link'] = [
+        '#type' => 'checkbox',
+        '#title' => t('Hide <front> page link'),
+        '#default_value' => $config->get('disable_front_page_link'),
+        '#description' => t('Hide home page link in breadcrumbs'),
+    ];
     return parent::buildForm($form, $form_state);
   }
 
@@ -69,6 +75,7 @@ class ConfigForm extends ConfigFormBase {
     $config->set('breadcrumb_menu', $form_state->getValue('breadcrumb_menu'));
     $config->set('breadcrumb_separator', $form_state->getValue('breadcrumb_separator'));
     $config->set('main_class', $form_state->getValue('main_class'));
+    $config->set('disable_front_page_link', $form_state->getValue('disable_front_page_link'));
     $config->save();
   }
 

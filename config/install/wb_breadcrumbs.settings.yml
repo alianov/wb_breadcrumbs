@@ -1,3 +1,4 @@
 breadcrumb_menu: 'main'
 breadcrumb_separator: ''
 main_class: 'breadcrumb'
+disable_front_page_link: false

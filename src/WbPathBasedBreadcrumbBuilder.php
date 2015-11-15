@@ -72,7 +72,8 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    */
   public function build(RouteMatchInterface $route_match) {
     $menu_tree = $this->menuTree;
-    $menu_name = $this->configFactory->get('wb_breadcrumbs.settings')->get('breadcrumb_menu');
+    $config = $this->configFactory->get('wb_breadcrumbs.settings');
+    $menu_name = $config->get('breadcrumb_menu');
     $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
     $tree = $menu_tree->load($menu_name, $parameters);
     $manipulators = array(
@@ -80,8 +81,13 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       array('callable' => 'menu.default_tree_manipulators:generateIndexAndSort'),
     );
     $tree = $menu_tree->transform($tree, $manipulators);
+    $home_link = [Link::createFromRoute($this->t('Home'), '<front>')];
+    //disable home page link if checkbox unchecked in breadcrumbs config
+    if ($config->get('disable_front_page_link')) {
+      $home_link = [];
+    }
     $links = array_merge(
-      [Link::createFromRoute($this->t('Home'), '<front>')],
+      $home_link,
       $this->linksFromTree($tree)
     );
 
