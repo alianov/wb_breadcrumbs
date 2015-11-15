@@ -108,7 +108,8 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
         $text = $element->link->getTitle();
         $url_object = $element->link->getUrlObject();
         if ($url_object->getRouteName() != "<front>") {
-          $out[] = $this->createFromRoute($text, $url_object);
+          $out = Link::fromTextAndUrl($text, $url_object);
+          $out[] = $out;
         }
         if ($element->subtree) {
           $out = array_merge($out, $this->linksFromTree($element->subtree));
@@ -116,13 +117,6 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       }
     }
     return $out;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function createFromRoute($text, $url_object) {
-    return new Link($text, $url_object);
   }
 
 }
