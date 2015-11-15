@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Template\Attribute;
+
 function wb_breadcrumbs_theme()
 {
   return [
