@@ -101,7 +101,9 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       if ($element->inActiveTrail) {
         $text = $element->link->getTitle();
         $url_object = $element->link->getUrlObject();
-        $out[] = $this->createFromRoute($text, $url_object);
+        if ($url_object->getRouteName() != "<front>") {
+          $out[] = $this->createFromRoute($text, $url_object);
+        }
         if ($element->subtree) {
           $out = array_merge($out, $this->linksFromTree($element->subtree));
         }
