@@ -76,10 +76,10 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     $menu_name = $config->get('breadcrumb_menu');
     $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
     $tree = $menu_tree->load($menu_name, $parameters);
-    $manipulators = array(
-      array('callable' => 'menu.default_tree_manipulators:checkAccess'),
-      array('callable' => 'menu.default_tree_manipulators:generateIndexAndSort'),
-    );
+    $manipulators = [
+      ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+      ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+    ];
     $tree = $menu_tree->transform($tree, $manipulators);
     $home_link = [Link::createFromRoute($this->t('Home'), '<front>')];
     //disable home page link if checkbox unchecked in breadcrumbs config
@@ -99,7 +99,7 @@ class WbPathBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   }
 
   /**
-   * {@inheritdoc}
+   * Generates links from menu tree
    */
   public function linksFromTree($tree) {
     $out = [];

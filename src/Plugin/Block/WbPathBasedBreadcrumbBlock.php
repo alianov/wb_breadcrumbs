@@ -80,12 +80,12 @@ class WbPathBasedBreadcrumbBlock extends BlockBase implements ContainerFactoryPl
     $separator = $config->get('breadcrumb_separator');
     $main_class = $config->get('main_class');
     if (!empty($breadcrumb)) {
-      return array(
+      return [
         '#theme' => 'wb_breadcrumb',
         '#breadcrumb' => $breadcrumb,
         '#separator' => $separator,
         '#main_class' => $main_class,
-      );
+      ];
     }
   }
 
